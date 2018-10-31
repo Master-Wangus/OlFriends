@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "59017833526",
+    "firebase_url": "https://olfriends-82af2.firebaseio.com",
+    "project_id": "olfriends-82af2",
+    "storage_bucket": "olfriends-82af2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:59017833526:android:2fef9edf83726e41",
+        "android_client_info": {
+          "package_name": "com.example.wesle.olfriends"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "59017833526-f6f05muobsa3ft0t8php72hnu4076fif.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wesle.olfriends",
+            "certificate_hash": "4bbd944e66615b05e2db9eaade20c5c527bc0541"
+          }
+        },
+        {
+          "client_id": "59017833526-jtvo9kqu5fodm5sl8of3tfpt297581mv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXZtFYmCzYa2JZhLPuZyT6kbvzQ2Yroxg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "59017833526-jtvo9kqu5fodm5sl8of3tfpt297581mv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
