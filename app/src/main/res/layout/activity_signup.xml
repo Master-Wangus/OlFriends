@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout1"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtViewLogIn"
+            android:textAlignment="center"
+            android:text="Sign Up"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="37dp"/>
+
+        <EditText
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:id="@+id/editTextEmail"
+            android:inputType="textEmailAddress"/>
+
+        <EditText
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:id="@+id/editTextPassword"
+            android:inputType="textPassword"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"
+            android:id="@+id/btnSignUp"
+            android:textColor="#003366"
+            android:background="#ADD8E6"
+            android:layout_margin="15dp"/>
+
+        <TextView
+            android:layout_marginTop="17dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Already have an account? Login here!"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:id="@+id/txtViewSignUp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
