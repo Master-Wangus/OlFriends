@@ -72,9 +72,9 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         /* Method to execute when password length is too short */
-        if(password.length()<6){
+        if(password.length()<8){
             /* Set error message */
-            editTextPassword.setError("Password must contain at least 6 characters!");
+            editTextPassword.setError("Password must contain at least 8 characters!");
             /* Direct focus on the textbox with the error */
             editTextPassword.requestFocus();
             return;
