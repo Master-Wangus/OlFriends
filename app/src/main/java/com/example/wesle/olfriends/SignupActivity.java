@@ -91,7 +91,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                 if(task.isSuccessful()){
                     finish();
                     /* Automatically signs user in the HomePageActivity.class */
-                    startActivity(new Intent(SignupActivity.this, HomePageActivity.class));
+                    startActivity(new Intent(SignupActivity.this, LoginActivity.class));
                     progressDialog.dismiss();
                     Toast.makeText(getApplicationContext(), "Successfully Registered!", Toast.LENGTH_SHORT).show();
                 }else{
@@ -114,7 +114,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.btnSignUp:
                 registerUser();
                 break;
-            case R.id.txtViewSignUp:
+            case R.id.txtViewLogIn:
                 finish();
                 /* Navigates to LoginActivity.class */
                 startActivity(new Intent(this, LoginActivity.class));
