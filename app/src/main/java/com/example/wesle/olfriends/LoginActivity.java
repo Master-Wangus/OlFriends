@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private ProgressDialog progressDialog;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -43,7 +43,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.btnLogIn).setOnClickListener(this);
     }
 
-    /* Method to sign the user in */
     /* Method to sign the user in */
     private void LoginUser(){
 

@@ -36,7 +36,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         mAuth = FirebaseAuth.getInstance();
 
         findViewById(R.id.btnSignUp).setOnClickListener(this);
-        findViewById(R.id.txtViewSignUp).setOnClickListener(this);
+        findViewById(R.id.txtViewLogIn).setOnClickListener(this);
     }
 
     /* Method to register the user */
@@ -90,7 +90,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     finish();
-                    /* Automatically signs user in the HomePageActivity.class */
+                    /* Automatically signs user in the LoginActivity.class */
                     startActivity(new Intent(SignupActivity.this, LoginActivity.class));
                     progressDialog.dismiss();
                     Toast.makeText(getApplicationContext(), "Successfully Registered!", Toast.LENGTH_SHORT).show();
