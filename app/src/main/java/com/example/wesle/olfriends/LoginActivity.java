@@ -21,12 +21,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
-    EditText editTextEmail, editTextPassword;
+    private EditText editTextEmail, editTextPassword;
+    private Button btnLogIn;
     private ProgressDialog progressDialog;
+    private TextView txtViewRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,100 +39,88 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         editTextEmail = (EditText)findViewById(R.id.editTextEmail);
         editTextPassword = (EditText)findViewById(R.id.editTextPassword);
+        btnLogIn = (Button)findViewById(R.id.btnLogIn);
         mAuth = FirebaseAuth.getInstance();
+        txtViewRegister = (TextView)findViewById(R.id.txtViewSignUp);
 
-        findViewById(R.id.txtViewSignUp).setOnClickListener(this);
-        findViewById(R.id.btnLogIn).setOnClickListener(this);
+        txtViewRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SendToRegister();
+            }
+        });
+
+        btnLogIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginUser();
+            }
+        });
+
     }
 
     /* Method to sign the user in */
-    private void LoginUser(){
+    private void loginUser(){
 
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
-        /* Method to execute when email field is empty */
-        if(email.isEmpty()){
-            /* Set error message */
-            editTextEmail.setError("Email required!");
+        if(TextUtils.isEmpty(email))
+        {
+            editTextEmail.setError("Please enter an email.");
             /* Direct focus on the textbox with the error */
             editTextEmail.requestFocus();
             return;
         }
 
-        /* Method to execute when password field is empty */
-        if(password.isEmpty()){
-            /* Set error message */
-            editTextPassword.setError("Password required!");
+        else if (TextUtils.isEmpty(password))
+        {
+            editTextPassword.setError("Please enter a password.");
             /* Direct focus on the textbox with the error */
             editTextPassword.requestFocus();
             return;
         }
 
-        /* Method to execute when email is invalid */
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            /* Set error message */
+        else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+        {
             editTextEmail.setError("Please enter a valid email!");
             /* Direct focus on the textbox with the error */
             editTextEmail.requestFocus();
             return;
         }
 
-        /* Method to execute when password length is too short */
-        if(password.length()<8){
-            /* Set error message */
-            editTextPassword.setError("Password must contain at least 8 characters!");
-            /* Direct focus on the textbox with the error */
-            editTextPassword.requestFocus();
-            return;
-        }
-
-        /* Display dialog upon clicking sign up button */
-        progressDialog.setMessage("Logging In...");
-        progressDialog.show();
-
-        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    /* Ends activity so cannot navigate by pressing back from HomePageActivity.class */
-                    finish();
-                    progressDialog.dismiss();
-                    Intent i = new Intent(LoginActivity.this, HomePageActivity.class);
-                    /* Method to clear all activities stacked on top of HomePageActivity */
-                    i.setFlags(i.FLAG_ACTIVITY_NEW_TASK | i.FLAG_ACTIVITY_CLEAR_TASK);
-                    /* Signs the user in to HomePageActivity.class */
-                    startActivity(i);
-                }else{
-                    progressDialog.dismiss();
-                    Toast.makeText(getApplicationContext(), "Authentication failed. Please try again.", Toast.LENGTH_SHORT).show();
+        else
+        {
+            progressDialog.setMessage("Logging In...");
+            progressDialog.show();
+            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()){
+                        SendToHome();
+                        progressDialog.dismiss();
+                        Toast.makeText(getApplicationContext(), "Successfully logged in!", Toast.LENGTH_SHORT).show();
+                    }else{
+                        progressDialog.dismiss();
+                        Toast.makeText(getApplicationContext(), "Authentication failed. Please try again.", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        /*Method to execute when user is logged in*/
-        if (mAuth.getCurrentUser() != null) {
-            finish();
-            startActivity(new Intent(this, HomePageActivity.class));
+            });
         }
     }
 
-    @Override
-    public void onClick(View v) {
-        switch(v.getId()){
-            case R.id.txtViewSignUp:
-                finish();
-                startActivity(new Intent(this, SignupActivity.class));
-                break;
-            case R.id.btnLogIn:
-                LoginUser();
-                break;
-        }
+    private void SendToHome(){
+        Intent home = new Intent(LoginActivity.this, HomePageActivity.class);
+        home.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(home);
+        finish();
     }
+
+    private void SendToRegister(){
+        Intent register = new Intent(LoginActivity.this,SignupActivity.class);
+        startActivity(register);
+    }
+
 
 }
 

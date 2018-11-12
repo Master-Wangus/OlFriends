@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -17,10 +18,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
-public class SignupActivity extends AppCompatActivity implements View.OnClickListener{
+public class SignupActivity extends AppCompatActivity {
 
-    EditText editTextEmail, editTextPassword;
-
+    private EditText editTextEmail, editTextPassword;
+    private TextView txtViewLogin;
+    private Button btnSignUp;
     private FirebaseAuth mAuth;
     private ProgressDialog progressDialog;
 
@@ -33,10 +35,29 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
         editTextEmail = (EditText)findViewById(R.id.editTextEmail);
         editTextPassword = (EditText)findViewById(R.id.editTextPassword);
+        btnSignUp = (Button)findViewById(R.id.btnSignUp);
         mAuth = FirebaseAuth.getInstance();
+        txtViewLogin = (TextView)findViewById(R.id.txtViewLogIn);
 
-        findViewById(R.id.btnSignUp).setOnClickListener(this);
-        findViewById(R.id.txtViewLogIn).setOnClickListener(this);
+        txtViewLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SendToLogin();
+            }
+        });
+
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                registerUser();
+            }
+        });
+
+    }
+
+    private void SendToLogin(){
+        Intent login = new Intent(SignupActivity.this, LoginActivity.class);
+        startActivity(login);
     }
 
     /* Method to register the user */
@@ -44,82 +65,70 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
-        /* Method to execute when email field is empty */
-        if(email.isEmpty()){
-            /* Set error message */
-            editTextEmail.setError("Email required!");
+        if(TextUtils.isEmpty(email))
+        {
+            editTextEmail.setError("Please enter an email.");
             /* Direct focus on the textbox with the error */
             editTextEmail.requestFocus();
             return;
         }
 
-        /* Method to execute when password field is empty */
-        if(password.isEmpty()){
-            /* Set error message */
-            editTextPassword.setError("Password required!");
+        else if (TextUtils.isEmpty(password))
+        {
+            editTextPassword.setError("Please enter a password.");
             /* Direct focus on the textbox with the error */
             editTextPassword.requestFocus();
             return;
         }
 
-        /* Method to execute when email is invalid */
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            /* Set error message */
-            editTextEmail.setError("Please enter a valid email!");
-            /* Direct focus on the textbox with the error */
-            editTextEmail.requestFocus();
-            return;
-        }
-
-        /* Method to execute when password length is too short */
-        if(password.length()<8){
-            /* Set error message */
+        else if (password.length()<8)
+        {
             editTextPassword.setError("Password must contain at least 8 characters!");
             /* Direct focus on the textbox with the error */
             editTextPassword.requestFocus();
             return;
         }
 
-        /* Display dialog upon clicking sign up button */
-        progressDialog.setMessage("Registering...");
-        progressDialog.show();
-
-        /* Method executed when task is completed */
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    finish();
-                    /* Automatically signs user in the LoginActivity.class */
-                    startActivity(new Intent(SignupActivity.this, LoginActivity.class));
-                    progressDialog.dismiss();
-                    Toast.makeText(getApplicationContext(), "Successfully Registered!", Toast.LENGTH_SHORT).show();
-                }else{
-                    /* Condition to check if email is already in use */
-                    if(task.getException() instanceof FirebaseAuthUserCollisionException){
-                        progressDialog.dismiss();
-                        Toast.makeText(getApplicationContext(), "Email is already in use!", Toast.LENGTH_SHORT).show();
-                    }else{
-                        progressDialog.dismiss();
-                        Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-
-                }
-            }
-        });
-    }
-    @Override
-    public void onClick(View v) {
-        switch(v.getId()){
-            case R.id.btnSignUp:
-                registerUser();
-                break;
-            case R.id.txtViewLogIn:
-                finish();
-                /* Navigates to LoginActivity.class */
-                startActivity(new Intent(this, LoginActivity.class));
-                break;
-
+        else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+        {
+            editTextEmail.setError("Please enter a valid email!");
+            /* Direct focus on the textbox with the error */
+            editTextEmail.requestFocus();
+            return;
         }
+        else
+        {
+            progressDialog.setMessage("Registering...");
+            progressDialog.show();
+            /* Method executed when task is completed */
+            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()){
+                        SendToSetup();
+                        progressDialog.dismiss();
+                        Toast.makeText(getApplicationContext(), "Successfully Registered!", Toast.LENGTH_SHORT).show();
+                    }else{
+                        /* Condition to check if email is already in use */
+                        if(task.getException() instanceof FirebaseAuthUserCollisionException){
+                            progressDialog.dismiss();
+                            Toast.makeText(getApplicationContext(), "Email is already in use!", Toast.LENGTH_SHORT).show();
+                        }else{
+                            progressDialog.dismiss();
+                            Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                }
+            });
+        }
+    }
+
+    private void SendToSetup()
+    {
+        Intent setup = new Intent(SignupActivity.this, SetupActivity.class);
+        setup.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(setup);
+        finish();
     }
 }
