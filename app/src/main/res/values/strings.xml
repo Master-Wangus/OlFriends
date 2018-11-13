@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">OlFriends</string>
+
+    <string-array name="Interests">
+        <item>Mahjong</item>
+        <item>Chess</item>
+        <item>Exercising</item>
+    </string-array>
 </resources>
