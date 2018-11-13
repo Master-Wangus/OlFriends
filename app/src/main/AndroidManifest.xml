@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wesle.olfriends">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -20,7 +20,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SetupActivity"/>
+        <activity android:name=".SetupActivity" />
+        <activity android:name=".ContentActivity" />
+        <activity android:name=".FriendsActivity" />
+        <activity android:name=".EventsActivity" />
+        <activity android:name=".MessageActivity" />
+        <activity android:name=".NewsActivity" />
+        <activity android:name=".ProfileActivity"></activity>
     </application>
 
 </manifest>

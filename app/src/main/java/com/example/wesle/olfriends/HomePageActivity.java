@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -19,7 +22,6 @@ import com.google.firebase.database.ValueEventListener;
 public class HomePageActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private Button btnLogout;
     private DatabaseReference ref;
 
     @Override
@@ -29,14 +31,30 @@ public class HomePageActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         ref = FirebaseDatabase.getInstance().getReference().child("Users");
-
-        btnLogout = (Button)findViewById(R.id.btnLogout);
-
-        btnLogout.setOnClickListener(new View.OnClickListener() {
+        BottomNavigationView btmNavView = (BottomNavigationView)findViewById(R.id.bottomNavView);
+        Menu menu = btmNavView.getMenu();
+        MenuItem menuItem = menu.getItem(0);
+        menuItem.setChecked(true);
+        btmNavView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                mAuth.signOut();
-                SendtoLogin();
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                /* Navigation methods executed based on case */
+                switch (item.getItemId()){
+                    case R.id.ic_home:
+                        break;
+                    case R.id.ic_settings:
+                        Intent settings = new Intent(HomePageActivity.this, ProfileActivity.class);
+                        startActivity(settings);
+                        break;
+                    case R.id.ic_logout:
+                        mAuth.signOut();
+                        finish();
+                        Intent logout = new Intent(HomePageActivity.this, LoginActivity.class);
+                        logout.setFlags(logout.FLAG_ACTIVITY_NEW_TASK | logout.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(logout);
+                        break;
+                }
+                return false;
             }
         });
     }
