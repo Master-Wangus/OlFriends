@@ -4,7 +4,12 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
-
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomBar"
+        />
 
 
     <RelativeLayout
@@ -12,6 +17,8 @@
         android:layout_height="50dp"
         android:id="@+id/bottomBar"
         android:layout_alignParentBottom="true">
+
+
 
         <android.support.design.widget.BottomNavigationView
             android:layout_width="match_parent"

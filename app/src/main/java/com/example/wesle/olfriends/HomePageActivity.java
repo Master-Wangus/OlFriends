@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,8 +21,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HomePageActivity extends AppCompatActivity {
 
+    RecyclerView recyclerView;
+    PagesAdapter adapter;
+    List<Pages> pagesList;
     private FirebaseAuth mAuth;
     private DatabaseReference ref;
 
@@ -29,12 +37,41 @@ public class HomePageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
+
         mAuth = FirebaseAuth.getInstance();
         ref = FirebaseDatabase.getInstance().getReference().child("Users");
         BottomNavigationView btmNavView = (BottomNavigationView)findViewById(R.id.bottomNavView);
         Menu menu = btmNavView.getMenu();
         MenuItem menuItem = menu.getItem(0);
         menuItem.setChecked(true);
+        //getting the recyclerview from xml
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+
+        //initializing the productlist
+        pagesList = new ArrayList<>();
+
+
+        //adding some items to our list
+        pagesList.add(
+                new Pages(
+                        "Message"));
+        pagesList.add(
+                new Pages(
+                        "Friends"));
+        pagesList.add(
+                new Pages(
+                        "Contents"));
+        pagesList.add(
+                new Pages(
+                        "News"));
+        pagesList.add(
+                new Pages(
+                        "Events"));
+        adapter = new PagesAdapter(this,pagesList);
+        recyclerView.setAdapter(adapter);
+
         btmNavView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -55,8 +92,10 @@ public class HomePageActivity extends AppCompatActivity {
                         break;
                 }
                 return false;
+
             }
         });
+
     }
 
     @Override
