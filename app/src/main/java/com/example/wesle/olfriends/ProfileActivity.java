@@ -22,7 +22,7 @@ public class ProfileActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         BottomNavigationView btmNavView = (BottomNavigationView)findViewById(R.id.bottomNavView);
         Menu menu = btmNavView.getMenu();
-        MenuItem menuItem = menu.getItem(1);
+        MenuItem menuItem = menu.getItem(0);
         menuItem.setChecked(true);
         btmNavView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -34,8 +34,6 @@ public class ProfileActivity extends AppCompatActivity {
                         startActivity(home);
                         break;
                     case R.id.ic_myprofile:
-                        Intent view = new Intent(ProfileActivity.this, ProfileActivity.class);
-                        startActivity(view);
                         break;
                     case R.id.ic_updateprofile:
                         Intent update = new Intent(ProfileActivity.this, UpdateProfileActivity.class);

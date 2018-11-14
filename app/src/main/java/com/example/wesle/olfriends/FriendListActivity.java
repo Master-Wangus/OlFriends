@@ -22,7 +22,7 @@ public class FriendListActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         BottomNavigationView btmNavView = (BottomNavigationView)findViewById(R.id.bottomNavView);
         Menu menu = btmNavView.getMenu();
-        MenuItem menuItem = menu.getItem(1);
+        MenuItem menuItem = menu.getItem(3);
         menuItem.setChecked(true);
         btmNavView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -42,8 +42,6 @@ public class FriendListActivity extends AppCompatActivity {
                         startActivity(update);
                         break;
                     case R.id.ic_friendlist:
-                        Intent friendlist = new Intent(FriendListActivity.this, FriendListActivity.class);
-                        startActivity(friendlist);
                         break;
                     case R.id.ic_logout:
                         mAuth.signOut();

@@ -42,7 +42,7 @@ public class HomePageActivity extends AppCompatActivity {
         ref = FirebaseDatabase.getInstance().getReference().child("Users");
         BottomNavigationView btmNavView = (BottomNavigationView)findViewById(R.id.bottomNavView);
         Menu menu = btmNavView.getMenu();
-        MenuItem menuItem = menu.getItem(0);
+        MenuItem menuItem = menu.getItem(2);
         menuItem.setChecked(true);
         //getting the recyclerview from xml
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);

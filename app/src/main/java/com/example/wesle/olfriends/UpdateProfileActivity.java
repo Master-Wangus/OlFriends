@@ -38,8 +38,6 @@ public class UpdateProfileActivity extends AppCompatActivity {
                         startActivity(view);
                         break;
                     case R.id.ic_updateprofile:
-                        Intent update = new Intent(UpdateProfileActivity.this, UpdateProfileActivity.class);
-                        startActivity(update);
                         break;
                     case R.id.ic_friendlist:
                         Intent friendlist = new Intent(UpdateProfileActivity.this, FriendListActivity.class);

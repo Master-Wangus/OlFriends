@@ -1,8 +1,11 @@
 package com.example.wesle.olfriends;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -47,6 +50,40 @@ public class PersonProfileActivity extends AppCompatActivity {
         userRef = FirebaseDatabase.getInstance().getReference().child("Users");
         friendReqRef = FirebaseDatabase.getInstance().getReference().child("Friend Requests");
         friendRef = FirebaseDatabase.getInstance().getReference().child("Friends");
+
+        BottomNavigationView btmNavView = (BottomNavigationView)findViewById(R.id.bottomNavView);
+        btmNavView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                /* Navigation methods executed based on case */
+                switch (item.getItemId()){
+                    case R.id.ic_home:
+                        Intent home = new Intent(PersonProfileActivity.this, HomePageActivity.class);
+                        startActivity(home);
+                        break;
+                    case R.id.ic_myprofile:
+                        Intent view = new Intent(PersonProfileActivity.this, ProfileActivity.class);
+                        startActivity(view);
+                        break;
+                    case R.id.ic_updateprofile:
+                        Intent update = new Intent(PersonProfileActivity.this, UpdateProfileActivity.class);
+                        startActivity(update);
+                        break;
+                    case R.id.ic_friendlist:
+                        Intent friendlist = new Intent(PersonProfileActivity.this, FriendListActivity.class);
+                        startActivity(friendlist);
+                        break;
+                    case R.id.ic_logout:
+                        mAuth.signOut();
+                        finish();
+                        Intent logout = new Intent(PersonProfileActivity.this, LoginActivity.class);
+                        logout.setFlags(logout.FLAG_ACTIVITY_NEW_TASK | logout.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(logout);
+                        break;
+                }
+                return false;
+            }
+        });
 
         userRef.child(receiverUserId).addValueEventListener(new ValueEventListener() {
             @Override
