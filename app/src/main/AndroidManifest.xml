@@ -21,12 +21,18 @@
             </intent-filter>
         </activity>
         <activity android:name=".SetupActivity" />
-        <activity android:name=".ContentActivity" />
-        <activity android:name=".FriendsActivity" />
-        <activity android:name=".EventsActivity" />
-        <activity android:name=".MessageActivity" />
-        <activity android:name=".NewsActivity" />
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ContentActivity"
+            android:parentActivityName=".HomePageActivity"/>
+        <activity android:name=".FriendsActivity"
+            android:parentActivityName=".HomePageActivity"/>
+        <activity android:name=".EventsActivity"
+            android:parentActivityName=".HomePageActivity"/>
+        <activity android:name=".MessageActivity"
+            android:parentActivityName=".HomePageActivity"/>
+        <activity android:name=".NewsActivity"
+            android:parentActivityName=".HomePageActivity"/>
+        <activity android:name=".ProfileActivity"
+            android:parentActivityName=".HomePageActivity"></activity>
     </application>
 
 </manifest>

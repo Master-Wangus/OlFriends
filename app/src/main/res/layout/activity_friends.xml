@@ -2,14 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Friends"
-        android:textSize="30sp"/>
+    android:background="#c0c0c0"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -29,5 +23,74 @@
         </android.support.design.widget.BottomNavigationView>
 
     </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:id="@+id/layout1"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/search_text"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="35dp"
+            android:text="Search for friends."
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"/>
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:id="@+id/search_box"
+            android:layout_below="@id/search_text"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:background="@drawable/searchbox"
+            android:hint="Search here..."
+            android:paddingLeft="10dp"
+            android:textColorHint="#000000"
+            android:textColor="#000000"/>
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/btnSearch"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/search_text"
+            android:layout_toRightOf="@id/search_box"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/searchbox"
+            android:src="@drawable/search"/>
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/btnSearch2"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/search_text"
+            android:layout_toRightOf="@id/btnSearch"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/searchbox"
+            android:src="@drawable/search"/>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/layout1"
+        android:layout_above="@id/bottomBar"
+        android:layout_margin="13dp"
+        android:id="@+id/search_list">
+
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>
