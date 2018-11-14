@@ -65,7 +65,7 @@ public class PagesAdapter extends RecyclerView.Adapter<PagesAdapter.PagesViewHol
                 public void onClick(View view) {
                     switch (getAdapterPosition()) {
                         case 0:
-                            final Intent intent = new Intent(mCtx, MessageActivity.class);
+                            final Intent intent = new Intent(mCtx, FriendListActivity.class);
                             mCtx.startActivity(intent);
                             break;
                         case 1:

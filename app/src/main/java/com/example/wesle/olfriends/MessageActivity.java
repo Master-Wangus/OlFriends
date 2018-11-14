@@ -154,7 +154,7 @@ public class MessageActivity extends AppCompatActivity {
 
         if (TextUtils.isEmpty(messageText))
         {
-            Toast.makeText(this, "please type a message first...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please type a message first...", Toast.LENGTH_SHORT).show();
         }
         else
         {

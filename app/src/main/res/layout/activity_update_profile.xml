@@ -27,4 +27,90 @@
 
     </RelativeLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/bottomBar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtMyProfile"
+                android:layout_marginTop="20dp"
+                android:text="My Profile"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:textAlignment="center"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/my_name"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_below="@id/txtMyProfile"
+                android:textSize="19sp"
+                android:textColor="#000000"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:hint="Name"
+                android:padding="12dp"
+                android:background="@drawable/inputs"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/my_age"
+                android:layout_marginTop="30dp"
+                android:layout_below="@id/my_name"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:textSize="19sp"
+                android:textColor="#000000"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:hint="Age"
+                android:padding="12dp"
+                android:background="@drawable/inputs"/>
+
+            <Spinner
+                android:id="@+id/my_interest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
+                android:layout_below="@id/my_age"
+                >
+
+            </Spinner>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/btnUpdate"
+                android:layout_below="@id/my_interest"
+                android:text="Update Profile"
+                android:layout_margin="40dp"
+                android:background="@color/colorPrimaryDark"
+                android:textSize="17sp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textAllCaps="false"/>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
 </RelativeLayout>

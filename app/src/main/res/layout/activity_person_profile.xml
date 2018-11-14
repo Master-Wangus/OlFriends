@@ -44,11 +44,15 @@
                 android:id="@+id/person_name"
                 android:layout_marginTop="50dp"
                 android:textAlignment="center"
-                android:textSize="20sp"
+                android:textSize="19sp"
                 android:textColor="#ffffff"
                 android:textAllCaps="false"
                 android:textStyle="bold"
-                android:text="Profile Name"/>
+                android:background="@drawable/inputs"
+                android:hint="Profile Name"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:padding="12dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -57,11 +61,15 @@
                 android:layout_marginTop="30dp"
                 android:layout_below="@id/person_name"
                 android:textAlignment="center"
-                android:textSize="20sp"
+                android:textSize="19sp"
                 android:textColor="#ffffff"
                 android:textAllCaps="false"
                 android:textStyle="bold"
-                android:text="Profile Age"/>
+                android:background="@drawable/inputs"
+                android:hint="Profile Age"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:padding="12dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -70,11 +78,15 @@
                 android:layout_marginTop="30dp"
                 android:layout_below="@id/person_age"
                 android:textAlignment="center"
-                android:textSize="20sp"
+                android:textSize="19sp"
                 android:textColor="#ffffff"
                 android:textAllCaps="false"
                 android:textStyle="bold"
-                android:text="Profile Interest"/>
+                android:background="@drawable/inputs"
+                android:hint="Profile Interest"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:padding="12dp"/>
 
             <Button
                 android:layout_width="230dp"

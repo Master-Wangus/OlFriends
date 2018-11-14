@@ -39,9 +39,12 @@
         <activity
             android:name=".ProfileActivity"
             android:parentActivityName=".HomePageActivity" />
-        <activity android:name=".PersonProfileActivity" />
-        <activity android:name=".UpdateProfileActivity" />
-        <activity android:name=".FriendListActivity"></activity>
+        <activity android:name=".PersonProfileActivity"
+            android:parentActivityName=".HomePageActivity"/>
+        <activity android:name=".UpdateProfileActivity"
+            android:parentActivityName=".HomePageActivity"/>
+        <activity android:name=".FriendListActivity"
+            android:parentActivityName=".HomePageActivity"></activity>
     </application>
 
 </manifest>
