@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c0c0c0"
+    tools:context=".PersonProfileActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/bottomBar"
+        android:layout_alignParentBottom="true">
+
+        <android.support.design.widget.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/bottomNavView"
+            android:background="#f48b94"
+            app:menu="@menu/nav_items"
+            app:itemTextColor="#ffffff"
+            app:itemIconTint="#ffffff">
+
+        </android.support.design.widget.BottomNavigationView>
+
+    </RelativeLayout>
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/bottomBar">
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/person_name"
+                android:layout_marginTop="50dp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:text="Profile Name"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/person_age"
+                android:layout_marginTop="30dp"
+                android:layout_below="@id/person_name"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:text="Profile Age"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/person_interest"
+                android:layout_marginTop="30dp"
+                android:layout_below="@id/person_age"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:text="Profile Interest"/>
+
+            <Button
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnSend"
+                android:layout_below="@id/person_interest"
+                android:layout_marginTop="50dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="Send Friend Request"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textAllCaps="false"
+                android:layout_centerHorizontal="true"
+                />
+
+            <Button
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnDecline"
+                android:layout_below="@id/btnSend"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorPrimary"
+                android:text="Reject Friend Request"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textAllCaps="false"
+                android:layout_centerHorizontal="true"
+                />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

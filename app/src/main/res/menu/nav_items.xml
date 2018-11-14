@@ -3,14 +3,24 @@
 
 
     <item
-        android:title="Settings"
-        android:icon="@drawable/ic_settings"
-        android:id="@+id/ic_settings"/>
+        android:title="My Profile"
+        android:icon="@drawable/ic_myprofile"
+        android:id="@+id/ic_myprofile"/>
+
+    <item
+        android:title="Update Profile"
+        android:icon="@drawable/ic_updateprofile"
+        android:id="@+id/ic_updateprofile"/>
 
     <item
         android:title="Home"
         android:icon="@drawable/ic_home"
         android:id="@+id/ic_home"/>
+
+    <item
+        android:title="Friend List"
+        android:icon="@drawable/ic_friendlist"
+        android:id="@+id/ic_friendlist"/>
 
     <item
         android:title="Log Out"

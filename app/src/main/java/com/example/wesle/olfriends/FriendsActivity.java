@@ -77,9 +77,17 @@ public class FriendsActivity extends AppCompatActivity {
                         Intent home = new Intent(FriendsActivity.this, HomePageActivity.class);
                         startActivity(home);
                         break;
-                    case R.id.ic_settings:
-                        Intent settings = new Intent(FriendsActivity.this, ProfileActivity.class);
-                        startActivity(settings);
+                    case R.id.ic_myprofile:
+                        Intent view = new Intent(FriendsActivity.this, ProfileActivity.class);
+                        startActivity(view);
+                        break;
+                    case R.id.ic_updateprofile:
+                        Intent update = new Intent(FriendsActivity.this, UpdateProfileActivity.class);
+                        startActivity(update);
+                        break;
+                    case R.id.ic_friendlist:
+                        Intent friendlist = new Intent(FriendsActivity.this, FriendListActivity.class);
+                        startActivity(friendlist);
                         break;
                     case R.id.ic_logout:
                         mAuth.signOut();
@@ -107,9 +115,20 @@ public class FriendsActivity extends AppCompatActivity {
                         searchQuery
                 ) {
             @Override
-            protected void populateViewHolder(FindFriendsViewHolder viewHolder, FindFriends model, int position) {
+            protected void populateViewHolder(FindFriendsViewHolder viewHolder, FindFriends model, final int position) {
                 viewHolder.setName(model.getName());
                 viewHolder.setAge(model.getAge());
+
+                viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String selected_uid = getRef(position).getKey();
+
+                        Intent profileIntent = new Intent(FriendsActivity.this, PersonProfileActivity.class);
+                        profileIntent.putExtra("selected_uid", selected_uid);
+                        startActivity(profileIntent);
+                    }
+                });
             }
         };
         userList.setAdapter(firebaseRecyclerAdapter);

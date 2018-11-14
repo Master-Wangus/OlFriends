@@ -31,9 +31,17 @@ public class EventsActivity extends AppCompatActivity {
                         Intent home = new Intent(EventsActivity.this, HomePageActivity.class);
                         startActivity(home);
                         break;
-                    case R.id.ic_settings:
-                        Intent settings = new Intent(EventsActivity.this, ProfileActivity.class);
-                        startActivity(settings);
+                    case R.id.ic_myprofile:
+                        Intent view = new Intent(EventsActivity.this, ProfileActivity.class);
+                        startActivity(view);
+                        break;
+                    case R.id.ic_updateprofile:
+                        Intent update = new Intent(EventsActivity.this, UpdateProfileActivity.class);
+                        startActivity(update);
+                        break;
+                    case R.id.ic_friendlist:
+                        Intent friendlist = new Intent(EventsActivity.this, FriendListActivity.class);
+                        startActivity(friendlist);
                         break;
                     case R.id.ic_logout:
                         mAuth.signOut();

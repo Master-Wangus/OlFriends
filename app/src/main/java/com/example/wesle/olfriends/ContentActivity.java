@@ -31,9 +31,17 @@ public class ContentActivity extends AppCompatActivity {
                         Intent home = new Intent(ContentActivity.this, HomePageActivity.class);
                         startActivity(home);
                         break;
-                    case R.id.ic_settings:
-                        Intent settings = new Intent(ContentActivity.this, ProfileActivity.class);
-                        startActivity(settings);
+                    case R.id.ic_myprofile:
+                        Intent view = new Intent(ContentActivity.this, ProfileActivity.class);
+                        startActivity(view);
+                        break;
+                    case R.id.ic_updateprofile:
+                        Intent update = new Intent(ContentActivity.this, UpdateProfileActivity.class);
+                        startActivity(update);
+                        break;
+                    case R.id.ic_friendlist:
+                        Intent friendlist = new Intent(ContentActivity.this, FriendListActivity.class);
+                        startActivity(friendlist);
                         break;
                     case R.id.ic_logout:
                         mAuth.signOut();

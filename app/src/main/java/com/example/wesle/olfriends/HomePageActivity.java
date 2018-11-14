@@ -79,9 +79,17 @@ public class HomePageActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.ic_home:
                         break;
-                    case R.id.ic_settings:
-                        Intent settings = new Intent(HomePageActivity.this, ProfileActivity.class);
-                        startActivity(settings);
+                    case R.id.ic_myprofile:
+                        Intent view = new Intent(HomePageActivity.this, ProfileActivity.class);
+                        startActivity(view);
+                        break;
+                    case R.id.ic_updateprofile:
+                        Intent update = new Intent(HomePageActivity.this, UpdateProfileActivity.class);
+                        startActivity(update);
+                        break;
+                    case R.id.ic_friendlist:
+                        Intent friendlist = new Intent(HomePageActivity.this, FriendListActivity.class);
+                        startActivity(friendlist);
                         break;
                     case R.id.ic_logout:
                         mAuth.signOut();
