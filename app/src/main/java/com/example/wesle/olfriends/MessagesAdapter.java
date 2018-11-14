@@ -68,6 +68,8 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
             holder.SenderMessageText.setVisibility(View.INVISIBLE);
             if (fromUserID.equals(messageSenderID))
             {
+                holder.SenderMessageText.setVisibility(View.VISIBLE);
+                holder.ReceiverMessageText.setVisibility(View.INVISIBLE);
                 holder.SenderMessageText.setBackgroundResource(R.drawable.sender_message_text_background);
                 holder.SenderMessageText.setTextColor(Color.WHITE);
                 holder.SenderMessageText.setGravity(Gravity.LEFT);
@@ -75,12 +77,12 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
             }
             else
             {
-                holder.SenderMessageText.setVisibility(View.VISIBLE);
+                holder.SenderMessageText.setVisibility(View.INVISIBLE);
                 holder.ReceiverMessageText.setVisibility(View.VISIBLE);
 
                 holder.ReceiverMessageText.setBackgroundResource(R.drawable.receiver_message_text_background);
                 holder.ReceiverMessageText.setTextColor(Color.WHITE);
-                holder.ReceiverMessageText.setGravity(Gravity.RIGHT);
+                holder.ReceiverMessageText.setGravity(Gravity.LEFT);
                 holder.ReceiverMessageText.setText(messages.getMessage());
             }
         }
