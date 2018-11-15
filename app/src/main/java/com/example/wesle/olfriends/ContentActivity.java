@@ -163,7 +163,7 @@ public class ContentActivity extends AppCompatActivity {
                         viewHolder.setFullname(model.getFullname());
                         viewHolder.setTime(model.getTime());
                         viewHolder.setDate(model.getDate());
-                        //viewHolder.setDescription(model.getDescription());
+                        viewHolder.setDescription(model.getDescription());
                         viewHolder.setPostimage(getApplicationContext(), model.getPostimage());
 
                     }
@@ -202,11 +202,11 @@ public class ContentActivity extends AppCompatActivity {
             PostDate.setText("    " + date);
         }
 
-        /*public void setDescription(String description)
+        public void setDescription(String description)
         {
             TextView PostDescription = (TextView) mView.findViewById(R.id.post_description);
             PostDescription.setText(description);
-        }*/
+        }
 
         public void setPostimage(Context ctx1, String postimage)
         {
