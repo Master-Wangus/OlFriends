@@ -1,33 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Content"
-        android:textSize="30sp"/>
+    tools:context="com.example.wesle.olfriends.ContentActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/bottomBar"
-        android:layout_alignParentBottom="true">
+        android:layout_height="match_parent">
 
-        <android.support.design.widget.BottomNavigationView
+        <ImageButton
+            android:id="@+id/add_new_post_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginBottom="50dp"
+            android:background="@color/colorPrimaryDark"
+            android:focusableInTouchMode="false"
+            android:scaleType="centerCrop"
+            android:src="@drawable/add_post_high"
+
+            />
+
+        <FrameLayout
+            android:id="@+id/main_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/bottomNavView"
-            android:background="#f48b94"
-            app:menu="@menu/nav_items"
-            app:itemTextColor="#ffffff"
-            app:itemIconTint="#ffffff">
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp">
 
-        </android.support.design.widget.BottomNavigationView>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/all_users_post_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/bottomBar"
+            android:layout_alignParentBottom="true">
+
+
+            <android.support.design.widget.BottomNavigationView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/bottomNavView"
+                android:background="#f48b94"
+                menu="@menu/nav_items"
+                app:itemTextColor="#ffffff"
+                app:itemIconTint="#ffffff">
+
+            </android.support.design.widget.BottomNavigationView>
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
-</RelativeLayout>
+    <android.support.design.widget.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:layout_marginBottom="3dp">
+    </android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>
