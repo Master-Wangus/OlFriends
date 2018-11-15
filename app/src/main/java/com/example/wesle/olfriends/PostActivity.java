@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -106,10 +107,10 @@ public class PostActivity extends AppCompatActivity
         }
         else
         {
-            loadingBar.setTitle("Add New Post");
-            loadingBar.setMessage("Please wait, while we are updating your new post...");
-            loadingBar.show();
-            loadingBar.setCanceledOnTouchOutside(true);
+           // loadingBar.setTitle("Add New Post");
+            //loadingBar.setMessage("Please wait, while we are updating your new post...");
+            //loadingBar.show();
+            //loadingBar.setCanceledOnTouchOutside(true);
 
             StoringImageToFirebaseStorage();
         }
@@ -164,8 +165,8 @@ public class PostActivity extends AppCompatActivity
             {
                 if(dataSnapshot.exists())
                 {
-                    String userFullName = dataSnapshot.child("fullname").getValue().toString();
-                    String userProfileImage = dataSnapshot.child("profileimage").getValue().toString();
+                    String userFullName = dataSnapshot.child("Name").getValue().toString();
+                    //String userProfileImage = dataSnapshot.child("profileimage").getValue().toString();
 
                     HashMap postsMap = new HashMap();
                     postsMap.put("uid", current_user_id);
@@ -173,7 +174,7 @@ public class PostActivity extends AppCompatActivity
                     postsMap.put("time", saveCurrentTime);
                     postsMap.put("description", Description);
                     postsMap.put("postimage", downloadUrl);
-                    postsMap.put("profileimage", userProfileImage);
+                    //postsMap.put("profileimage", userProfileImage);
                     postsMap.put("fullname", userFullName);
                     PostsRef.child(current_user_id + postRandomName).updateChildren(postsMap)
                             .addOnCompleteListener(new OnCompleteListener() {

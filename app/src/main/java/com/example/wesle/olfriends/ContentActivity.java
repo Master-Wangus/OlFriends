@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -101,17 +102,17 @@ public class ContentActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot)
             {
                 if(dataSnapshot.exists())
-                {
-                    if(dataSnapshot.hasChild("fullname"))
+                {//d
+                    if(dataSnapshot.hasChild("Name"))
                     {
-                        String fullname = dataSnapshot.child("fullname").getValue().toString();
-                        NavProfileUserName.setText(fullname);
+                        String fullname = dataSnapshot.child("Name").getValue().toString();
+                        //NavProfileUserName.setText(fullname);
                     }
-                    if(dataSnapshot.hasChild("profileimage"))
+                    /*if(dataSnapshot.hasChild("profileimage"))
                     {
                         String image = dataSnapshot.child("profileimage").getValue().toString();
                         //Picasso.with(ContentActivity.this).load(image).placeholder(R.drawable.profile).into(NavProfileImage);
-                    }
+                    }*/
                     else
                     {
                         Toast.makeText(ContentActivity.this, "Profile name do not exists...", Toast.LENGTH_SHORT).show();
@@ -124,14 +125,14 @@ public class ContentActivity extends AppCompatActivity {
 
             }
         });
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        /*navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item)
             {
-                //UserMenuSelector(item);
+                UserMenuSelector(item);
                 return false;
             }
-        });
+        });*/
 
 
         AddNewPostButton.setOnClickListener(new View.OnClickListener() {
@@ -150,6 +151,7 @@ public class ContentActivity extends AppCompatActivity {
 
     private void DisplayAllUsersPosts()
     {
+       ;
         FirebaseRecyclerAdapter<Posts, PostsViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Posts, ContentActivity.PostsViewHolder>
                         (
@@ -162,6 +164,8 @@ public class ContentActivity extends AppCompatActivity {
                     @Override
                     protected void populateViewHolder(ContentActivity.PostsViewHolder viewHolder, Posts model, int position)
                     {
+
+
                         viewHolder.setFullname(model.getFullname());
                         viewHolder.setTime(model.getTime());
                         viewHolder.setDate(model.getDate());
@@ -287,7 +291,7 @@ public class ContentActivity extends AppCompatActivity {
 
 
 
-    @Override
+   /* @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
         if(actionBarDrawerToggle.onOptionsItemSelected(item))
@@ -296,7 +300,7 @@ public class ContentActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
 
 }

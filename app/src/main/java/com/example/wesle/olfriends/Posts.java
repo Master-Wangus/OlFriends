@@ -6,7 +6,7 @@ package com.example.wesle.olfriends;
 
 public class Posts
 {
-    public String uid, time, date, postimage, description, profileimage, fullname;
+    public String uid, time, date, postimage, description, fullname;
 
     public Posts()
     {
@@ -19,7 +19,7 @@ public class Posts
         this.date = date;
         this.postimage = postimage;
         this.description = description;
-        this.profileimage = profileimage;
+        //this.profileimage = profileimage;
         this.fullname = fullname;
     }
 
@@ -63,14 +63,13 @@ public class Posts
         this.description = description;
     }
 
-    public String getProfileimage() {
+    /*public String getProfileimage() {
         return profileimage;
     }
 
     public void setProfileimage(String profileimage) {
         this.profileimage = profileimage;
-    }
-
+    }*/
     public String getFullname() {
         return fullname;
     }
