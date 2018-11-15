@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OlFriends</string>
+    <string name="app_name"><b>OlFriends</b></string>
 
     <string-array name="Interests">
         <item>Mahjong</item>

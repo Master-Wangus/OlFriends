@@ -10,7 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="8dp">
+        android:layout_margin="8dp"
+        android:textAlignment="center"
+        android:padding="10dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -18,9 +20,10 @@
             android:text="user_name"
             android:textAlignment="textStart"
             android:textColor="#ffffff"
-            android:textSize="19sp"
+            android:textSize="25sp"
             android:textStyle="bold"
-            android:id="@+id/txtName"/>
+            android:id="@+id/txtName"
+            android:layout_marginLeft="5dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -28,9 +31,12 @@
             android:text="user_age"
             android:textAlignment="textStart"
             android:textColor="#ffffff"
-            android:textSize="19sp"
+            android:textSize="25sp"
             android:textStyle="bold"
-            android:id="@+id/txtAge"/>
+            android:id="@+id/txtAge"
+            android:layout_marginLeft="5dp"
+            />
+
 
 
     </LinearLayout>
