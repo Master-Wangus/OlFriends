@@ -28,6 +28,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 public class ContentActivity extends AppCompatActivity {
 
@@ -142,21 +143,16 @@ public class ContentActivity extends AppCompatActivity {
                 SendUserToPostActivity();
             }
         });
-
-
         DisplayAllUsersPosts();
     }
 
-
-
     private void DisplayAllUsersPosts()
     {
-       ;
         FirebaseRecyclerAdapter<Posts, PostsViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Posts, ContentActivity.PostsViewHolder>
                         (
                                 Posts.class,
-                                R.id.all_users_post_list,
+                                R.layout.all_posts_layout,
                                 ContentActivity.PostsViewHolder.class,
                                 PostsRef
                         )
@@ -164,16 +160,16 @@ public class ContentActivity extends AppCompatActivity {
                     @Override
                     protected void populateViewHolder(ContentActivity.PostsViewHolder viewHolder, Posts model, int position)
                     {
-
-
                         viewHolder.setFullname(model.getFullname());
                         viewHolder.setTime(model.getTime());
                         viewHolder.setDate(model.getDate());
-                        viewHolder.setDescription(model.getDescription());
+                        //viewHolder.setDescription(model.getDescription());
                         viewHolder.setPostimage(getApplicationContext(), model.getPostimage());
+
                     }
                 };
         postList.setAdapter(firebaseRecyclerAdapter);
+
     }
 
 
@@ -206,16 +202,16 @@ public class ContentActivity extends AppCompatActivity {
             PostDate.setText("    " + date);
         }
 
-        public void setDescription(String description)
+        /*public void setDescription(String description)
         {
             TextView PostDescription = (TextView) mView.findViewById(R.id.post_description);
             PostDescription.setText(description);
-        }
+        }*/
 
         public void setPostimage(Context ctx1, String postimage)
         {
             ImageView PostImage = (ImageView) mView.findViewById(R.id.post_image);
-            //Picasso.with(ctx1).load(postimage).into(PostImage);
+            Picasso.with(ctx1).load(postimage).into(PostImage);
         }
     }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,21 +10,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <ImageButton
-            android:id="@+id/add_new_post_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginLeft="12dp"
-            android:layout_marginBottom="50dp"
-            android:background="@color/colorPrimaryDark"
-            android:focusableInTouchMode="false"
-            android:scaleType="centerCrop"
-            android:src="@drawable/add_post_high"
-
-            />
 
         <FrameLayout
             android:id="@+id/main_container"
@@ -40,6 +25,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </FrameLayout>
+        <ImageButton
+            android:id="@+id/add_new_post_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="12dp"
+            android:layout_above="@id/bottomBar"
+            android:background="@color/colorPrimaryDark"
+            android:focusableInTouchMode="false"
+            android:scaleType="centerCrop"
+            android:src="@drawable/add_post_high"
+
+            />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -47,27 +45,16 @@
             android:id="@+id/bottomBar"
             android:layout_alignParentBottom="true">
 
-
             <android.support.design.widget.BottomNavigationView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/bottomNavView"
                 android:background="#f48b94"
-                menu="@menu/nav_items"
+                app:menu="@menu/nav_items"
                 app:itemTextColor="#ffffff"
                 app:itemIconTint="#ffffff">
 
             </android.support.design.widget.BottomNavigationView>
-
         </RelativeLayout>
-
     </RelativeLayout>
-
-    <android.support.design.widget.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:layout_marginBottom="3dp">
-    </android.support.design.widget.NavigationView>
-
-</android.support.v4.widget.DrawerLayout>
+</RelativeLayout>

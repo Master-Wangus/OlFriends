@@ -13,7 +13,7 @@ public class Posts
 
     }
 
-    public Posts(String uid, String time, String date, String postimage, String description, String profileimage, String fullname) {
+    public Posts(String uid, String time, String date, String postimage, String description, String fullname) {
         this.uid = uid;
         this.time = time;
         this.date = date;
