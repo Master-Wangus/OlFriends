@@ -7,12 +7,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 public class ProfileActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+
+    private TextView profileName, profileAge, profileInterest, profileTitle;
+
+    private DatabaseReference profileRef;
+
+    private String currentUserId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +34,12 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         mAuth = FirebaseAuth.getInstance();
+        currentUserId = mAuth.getCurrentUser().getUid();
+        profileRef = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserId);
+        profileName = (TextView)findViewById(R.id.profile_name);
+        profileAge = (TextView)findViewById(R.id.profile_age);
+        profileInterest = (TextView)findViewById(R.id.profile_interest);
+        profileTitle = (TextView)findViewById(R.id.txtTitle);
         BottomNavigationView btmNavView = (BottomNavigationView)findViewById(R.id.bottomNavView);
         Menu menu = btmNavView.getMenu();
         MenuItem menuItem = menu.getItem(0);
@@ -52,6 +72,27 @@ public class ProfileActivity extends AppCompatActivity {
                         break;
                 }
                 return false;
+            }
+        });
+
+        profileRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    String profilename = dataSnapshot.child("Name").getValue().toString();
+                    String profileage = dataSnapshot.child("Age").getValue().toString();
+                    String profileinterest = dataSnapshot.child("Interest").getValue().toString();
+
+                    profileName.setText("Displayed Name: " + profilename);
+                    profileAge.setText("Displayed Age: " + profileage);
+                    profileInterest.setText("Displayed Interest: " + profileinterest);
+                    profileTitle.setText("Welcome " + profilename);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
 
