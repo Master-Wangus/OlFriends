@@ -24,7 +24,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginBottom="131dp"
         android:ems="10"
-        android:hint="Wite something about your image"
+        android:hint="Write a caption for your post..."
         android:inputType="textMultiLine" />
 
     <Button
@@ -34,5 +34,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="65dp"
-        android:text="Update Post" />
+        android:text="Upload Post" />
+
 </RelativeLayout>

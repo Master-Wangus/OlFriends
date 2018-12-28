@@ -83,9 +83,9 @@ public class ProfileActivity extends AppCompatActivity {
                     String profileage = dataSnapshot.child("Age").getValue().toString();
                     String profileinterest = dataSnapshot.child("Interest").getValue().toString();
 
-                    profileName.setText("Displayed Name: " + profilename);
-                    profileAge.setText("Displayed Age: " + profileage);
-                    profileInterest.setText("Displayed Interest: " + profileinterest);
+                    profileName.setText("Displayed Name:  " + profilename);
+                    profileAge.setText("Displayed Age:  " + profileage);
+                    profileInterest.setText("Displayed Interest:  " + profileinterest);
                     profileTitle.setText("Welcome " + profilename);
                 }
             }

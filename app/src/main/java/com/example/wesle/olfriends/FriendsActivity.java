@@ -165,12 +165,12 @@ public class FriendsActivity extends AppCompatActivity {
 
         public void setName(String name){
             TextView myName = (TextView) mView.findViewById(R.id.txtName);
-            myName.setText(name);
+            myName.setText("Name: " + name);
         }
 
         public void setAge(String age){
             TextView myAge =  (TextView) mView.findViewById(R.id.txtAge);
-            myAge.setText(age);
+            myAge.setText("Age: " + age);
         }
     }
 

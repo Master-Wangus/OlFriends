@@ -117,7 +117,7 @@ public class FriendListActivity extends AppCompatActivity {
                                 public void onClick(View view) {
                                     CharSequence options[] = new CharSequence[]
                                             {
-                                                    userName + "'s Profile",
+                                                    "View " + userName + "'s Profile",
                                                     "Send Message"
                                             };
                                     AlertDialog.Builder builder = new AlertDialog.Builder(FriendListActivity.this);

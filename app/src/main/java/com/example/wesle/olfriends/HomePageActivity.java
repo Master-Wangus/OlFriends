@@ -59,7 +59,7 @@ public class HomePageActivity extends AppCompatActivity {
                         "Message"));
         pagesList.add(
                 new Pages(
-                        "Friends"));
+                        "Friend Search"));
         pagesList.add(
                 new Pages(
                         "Contents"));

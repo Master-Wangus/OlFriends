@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#c0c0c0"
+    android:background="#F5F5DC"
     tools:context=".PersonProfileActivity">
 
     <RelativeLayout
@@ -94,7 +94,7 @@
                 android:id="@+id/btnSend"
                 android:layout_below="@id/person_interest"
                 android:layout_marginTop="50dp"
-                android:background="@color/colorPrimaryDark"
+                android:background="#3BB9FF"
                 android:text="Send Friend Request"
                 android:textColor="#ffffff"
                 android:textStyle="bold"

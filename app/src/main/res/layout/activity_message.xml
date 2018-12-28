@@ -18,7 +18,7 @@
             android:id="@+id/input_message"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
-            android:hint="write your message here.."
+            android:hint="Write your message here..."
             android:padding="17dp"
             />
         <ImageButton
@@ -59,7 +59,7 @@
         android:layout_above="@id/myLinearLayout"
         android:layout_alignParentStart="true"
         android:layout_centerHorizontal="true"
-        android:background="@android:color/darker_gray">
+        android:background="#f5f5dc">
 
     </android.support.v7.widget.RecyclerView>
 
