@@ -44,14 +44,20 @@
         <activity
             android:name=".ProfileActivity"
             android:parentActivityName=".HomePageActivity" />
-        <activity android:name=".PersonProfileActivity"
-            android:parentActivityName=".HomePageActivity"/>
-        <activity android:name=".UpdateProfileActivity"
-            android:parentActivityName=".HomePageActivity"/>
-        <activity android:name=".FriendListActivity"
-            android:parentActivityName=".HomePageActivity"></activity>
-        <activity android:name=".PostActivity"
-            android:parentActivityName=".HomePageActivity"></activity>
+        <activity
+            android:name=".PersonProfileActivity"
+            android:parentActivityName=".HomePageActivity" />
+        <activity
+            android:name=".UpdateProfileActivity"
+            android:parentActivityName=".HomePageActivity" />
+        <activity
+            android:name=".FriendListActivity"
+            android:parentActivityName=".HomePageActivity" />
+        <activity
+            android:name=".PostActivity"
+            android:parentActivityName=".HomePageActivity" />
+        <activity android:name=".ClickPostActivity" />
+        <activity android:name=".CommentActivity"></activity>
     </application>
 
 </manifest>
