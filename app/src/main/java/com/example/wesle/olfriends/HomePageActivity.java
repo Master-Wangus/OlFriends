@@ -62,7 +62,7 @@ public class HomePageActivity extends AppCompatActivity {
                         "Friend Search"));
         pagesList.add(
                 new Pages(
-                        "Contents"));
+                        "Content"));
         pagesList.add(
                 new Pages(
                         "News"));

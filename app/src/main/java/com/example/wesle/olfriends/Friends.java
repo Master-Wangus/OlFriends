@@ -6,6 +6,7 @@ class Friends {
 
     public Friends ()
     {
+
     }
 
     public Friends(String date, String age, String interest) {
