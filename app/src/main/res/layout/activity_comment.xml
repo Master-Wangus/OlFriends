@@ -37,7 +37,7 @@
         android:layout_marginRight="55dp"
         android:background="@drawable/inputs"
         android:padding="15dp"
-        android:hint="Write a comment here!"
+        android:hint="Type a comment here!"
         android:inputType="textMultiLine"/>
     <ImageButton
         android:layout_width="wrap_content"

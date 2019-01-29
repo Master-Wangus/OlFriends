@@ -78,7 +78,7 @@
             android:layout_toRightOf="@id/btnSearch"
             android:layout_marginLeft="10dp"
             android:background="@drawable/searchbox"
-            android:src="@drawable/search"/>
+            android:src="@drawable/heart"/>
 
     </RelativeLayout>
 

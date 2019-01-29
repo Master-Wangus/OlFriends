@@ -68,7 +68,7 @@ public class HomePageActivity extends AppCompatActivity {
                         "News"));
         pagesList.add(
                 new Pages(
-                        "Events"));
+                        "Help"));
         adapter = new PagesAdapter(this,pagesList);
         recyclerView.setAdapter(adapter);
 

@@ -19,11 +19,6 @@
         <activity android:name=".HomePageActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".SetupActivity" />
         <activity
@@ -57,7 +52,14 @@
             android:name=".PostActivity"
             android:parentActivityName=".HomePageActivity" />
         <activity android:name=".ClickPostActivity" />
-        <activity android:name=".CommentActivity"></activity>
+        <activity android:name=".CommentActivity" />
+        <activity android:name=".SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
