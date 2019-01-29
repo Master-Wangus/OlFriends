@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/txtViewSignUp"
             android:textAlignment="center"
-            android:text="Sign Up"
+            android:text="@string/sign_up"
             android:textSize="38sp"
             android:textStyle="bold"
             android:textColor="#000000"
@@ -39,7 +39,7 @@
             android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="@string/email"
             android:id="@+id/editTextEmail"
             android:inputType="textEmailAddress"/>
 
@@ -47,14 +47,14 @@
             android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="@string/password"
             android:id="@+id/editTextPassword"
             android:inputType="textPassword"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign Up"
+            android:text="@string/sign_up"
             android:id="@+id/btnSignUp"
             android:textColor="#ffffff"
             android:textStyle="bold"
@@ -65,7 +65,7 @@
             android:layout_marginTop="17dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Already have an account? Login here!"
+            android:text="@string/got_account"
             android:textSize="18sp"
             android:textAlignment="center"
             android:textColor="#000000"

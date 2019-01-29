@@ -30,6 +30,7 @@
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:textStyle="bold"
+                android:textAlignment="center"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="#385D53" />
 
