@@ -56,19 +56,19 @@ public class HomePageActivity extends AppCompatActivity {
         //adding some items to our list
         pagesList.add(
                 new Pages(
-                        "Message"));
+                        "Content",R.drawable.emaillogo));
         pagesList.add(
                 new Pages(
-                        "Friend Search"));
+                        "Message",R.drawable.message));
         pagesList.add(
                 new Pages(
-                        "Content"));
+                        "Friend Search",R.drawable.friendlogo));
         pagesList.add(
                 new Pages(
-                        "News"));
+                        "News",R.drawable.newslogo));
         pagesList.add(
                 new Pages(
-                        "Help"));
+                        "Help",R.drawable.helplogo));
         adapter = new PagesAdapter(this,pagesList);
         recyclerView.setAdapter(adapter);
 

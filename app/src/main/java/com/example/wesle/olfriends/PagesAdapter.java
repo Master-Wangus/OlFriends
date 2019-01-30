@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -42,6 +43,7 @@ public class PagesAdapter extends RecyclerView.Adapter<PagesAdapter.PagesViewHol
 
         //binding the data with the viewholder views
         holder.textViewTitle.setText(pages.getTitle());
+        holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(pages.getImage()));
 
     }
 
@@ -55,25 +57,27 @@ public class PagesAdapter extends RecyclerView.Adapter<PagesAdapter.PagesViewHol
     class PagesViewHolder extends RecyclerView.ViewHolder {
 
         TextView textViewTitle;
+        ImageView imageView;
 
         public PagesViewHolder(View itemView) {
             super(itemView);
 
             textViewTitle = itemView.findViewById(R.id.textViewTitle);
+            imageView = itemView.findViewById(R.id.imageView);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     switch (getAdapterPosition()) {
                         case 0:
-                            final Intent intent = new Intent(mCtx, FriendListActivity.class);
+                            final Intent intent = new Intent(mCtx, ContentActivity.class);
                             mCtx.startActivity(intent);
                             break;
                         case 1:
-                            final Intent intent2 = new Intent(mCtx, FriendsActivity.class);
+                            final Intent intent2 = new Intent(mCtx, FriendListActivity.class);
                             mCtx.startActivity(intent2);
                             break;
                         case 2:
-                            final Intent intent3 = new Intent(mCtx, ContentActivity.class);
+                            final Intent intent3 = new Intent(mCtx, FriendsActivity.class);
                             mCtx.startActivity(intent3);
                             break;
                         case 3:
@@ -81,13 +85,9 @@ public class PagesAdapter extends RecyclerView.Adapter<PagesAdapter.PagesViewHol
                             mCtx.startActivity(intent4);
                             break;
                         case 4:
-                            final Intent intent5 = new Intent(mCtx, EventsActivity.class);
+                            final Intent intent5 = new Intent(mCtx, HelpActivity.class);
                             mCtx.startActivity(intent5);
                             break;
-//                        case 5:
-//                            final Intent intent6 = new Intent(mCtx, HelpActivity.class);
-//                            mCtx.startActivity(intent6);
-//                            break;
                     }
                 }
             });
