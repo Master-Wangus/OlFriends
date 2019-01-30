@@ -7,4 +7,10 @@
     <string name="no_account">没有客户?请点击这里报名</string>
     <string name="sign_up">报名</string>
     <string name="got_account">有了客户?请点击这里登录</string>
+    <string name="help_category">选种类</string>
+    <string name="profile">传略</string>
+    <string name="friends">朋友</string>
+    <string name="content">内容</string>
+    <string name="news">新闻</string>
+    <string name="message">聊天</string>
 </resources>
