@@ -34,8 +34,9 @@
             android:name=".MessageActivity"
             android:parentActivityName=".HomePageActivity" />
         <activity
-            android:name=".NewsActivity"
-            android:parentActivityName=".HomePageActivity" />
+            android:name=".MainActivity"
+            android:parentActivityName=".HomePageActivity"
+            />
         <activity
             android:name=".ProfileActivity"
             android:parentActivityName=".HomePageActivity" />
@@ -51,6 +52,9 @@
         <activity
             android:name=".PostActivity"
             android:parentActivityName=".HomePageActivity" />
+        <activity
+            android:name=".NewsActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".ClickPostActivity" />
         <activity android:name=".CommentActivity" />
         <activity android:name=".SplashScreenActivity">

@@ -77,7 +77,7 @@ public class PagesAdapter extends RecyclerView.Adapter<PagesAdapter.PagesViewHol
                             mCtx.startActivity(intent3);
                             break;
                         case 3:
-                            final Intent intent4 = new Intent(mCtx, NewsActivity.class);
+                            final Intent intent4 = new Intent(mCtx, MainActivity.class);
                             mCtx.startActivity(intent4);
                             break;
                         case 4:
