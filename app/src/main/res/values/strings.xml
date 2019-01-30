@@ -7,6 +7,17 @@
     <string name="no_account">Don\'t have an account? Register here!</string>
     <string name="sign_up">Sign Up</string>
     <string name="got_account">Already have an account? Login here!</string>
+    <string name="help_category">Select a Help Category</string>
+    <string name="profile">Profile</string>
+    <string name="friends">Friends</string>
+    <string name="content">Content</string>
+    <string name="message">Message</string>
+    <string name="news">News</string>
+    <string name="my_profile">My Profile</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="home">Home</string>
+    <string name="friend_list">Friend List</string>
+    <string name="log_out">Log Out</string>
 
 
     <string-array name="Interests">
