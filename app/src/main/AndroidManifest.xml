@@ -18,8 +18,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".HomePageActivity" />
         <activity android:name=".SignupActivity" />
-        <activity android:name=".LoginActivity">
-        </activity>
+        <activity android:name=".LoginActivity" />
         <activity android:name=".SetupActivity" />
         <activity
             android:name=".ContentActivity"
@@ -60,6 +59,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".HelpActivity" />
+        <activity android:name=".ProfileHelpActivity" />
+        <activity android:name=".FriendsHelpActivity"></activity>
     </application>
 
 </manifest>
