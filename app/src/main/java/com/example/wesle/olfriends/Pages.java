@@ -11,4 +11,5 @@ public class Pages {
     public String getTitle() {
         return title;
     }
+
 }

@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/txtViewLogIn"
             android:textAlignment="center"
-            android:text="Login"
+            android:text="@string/login"
             android:textSize="38sp"
             android:textStyle="bold"
             android:textColor="#000000"
@@ -38,7 +38,7 @@
             android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="@string/email"
             android:id="@+id/editTextEmail"
             android:inputType="textEmailAddress"/>
 
@@ -46,14 +46,14 @@
             android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="@string/password"
             android:id="@+id/editTextPassword"
             android:inputType="textPassword"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Log In"
+            android:text="@string/login"
             android:textStyle="bold"
             android:id="@+id/btnLogIn"
             android:textColor="#ffffff"
@@ -64,7 +64,7 @@
             android:layout_marginTop="17dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Don't have an account? Register here!"
+            android:text="@string/no_account"
             android:textSize="18sp"
             android:textAlignment="center"
             android:textColor="#000000"

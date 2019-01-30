@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name"><b>老朋友</b></string>
+    <string name="login">登录</string>
+    <string name="email">电邮</string>
+    <string name="password">密码</string>
+    <string name="no_account">没有客户?请点击这里报名</string>
+    <string name="sign_up">报名</string>
+    <string name="got_account">有了客户?请点击这里登录</string>
+</resources>
