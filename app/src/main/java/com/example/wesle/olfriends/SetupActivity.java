@@ -2,6 +2,7 @@ package com.example.wesle.olfriends;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,20 +18,31 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.util.HashMap;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SetupActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private EditText editTextName, editTextAge;
     private Spinner ddlInterests;
-    private Button btnSetup;
+    private Button btnSetup, btnNextPage;
     private FirebaseAuth mAuth;
     private DatabaseReference ref;
+    private StorageReference UserProfileImageRef;
     private ProgressDialog progressDialog;
-
     String currentUserId;
 
     @Override
@@ -46,12 +58,10 @@ public class SetupActivity extends AppCompatActivity implements AdapterView.OnIt
         currentUserId = mAuth.getCurrentUser().getUid();
         ref = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserId);
         progressDialog = new ProgressDialog(this);
-
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Interests, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ddlInterests.setAdapter(adapter);
         ddlInterests.setOnItemSelectedListener(this);
-
         btnSetup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +69,7 @@ public class SetupActivity extends AppCompatActivity implements AdapterView.OnIt
             }
         });
     }
+
 
     private void Setup(){
         String name = editTextName.getText().toString().trim();
@@ -97,7 +108,7 @@ public class SetupActivity extends AppCompatActivity implements AdapterView.OnIt
                 public void onComplete(@NonNull Task task) {
                     if(task.isSuccessful())
                     {
-                        SendToHome();
+                        NextPage();
                         progressDialog.dismiss();
                         Toast.makeText(SetupActivity.this, "Your Account Is Created Successfully!", Toast.LENGTH_LONG).show();
                     }
@@ -123,8 +134,8 @@ public class SetupActivity extends AppCompatActivity implements AdapterView.OnIt
 
     }
 
-    private void SendToHome(){
-        Intent home = new Intent(SetupActivity.this, HomePageActivity.class);
+    private void NextPage(){
+        Intent home = new Intent(SetupActivity.this, SetupPic.class);
         home.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(home);
         finish();
