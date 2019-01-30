@@ -63,9 +63,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HelpActivity" />
-        <activity android:name=".ProfileHelpActivity" />
-        <activity android:name=".FriendsHelpActivity"></activity>
+        <activity android:name=".HelpActivity" android:parentActivityName=".HomePageActivity"/>
+        <activity android:name=".ProfileHelpActivity" android:parentActivityName=".HelpActivity"/>
+        <activity android:name=".FriendsHelpActivity" android:parentActivityName=".HelpActivity"></activity>
     </application>
 
 </manifest>
