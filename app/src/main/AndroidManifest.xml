@@ -34,8 +34,7 @@
             android:parentActivityName=".HomePageActivity" />
         <activity
             android:name=".MainActivity"
-            android:parentActivityName=".HomePageActivity"
-            />
+            android:parentActivityName=".HomePageActivity" />
         <activity
             android:name=".ProfileActivity"
             android:parentActivityName=".HomePageActivity" />
@@ -63,9 +62,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HelpActivity" android:parentActivityName=".HomePageActivity"/>
-        <activity android:name=".ProfileHelpActivity" android:parentActivityName=".HelpActivity"/>
-        <activity android:name=".FriendsHelpActivity" android:parentActivityName=".HelpActivity"></activity>
+        <activity
+            android:name=".HelpActivity"
+            android:parentActivityName=".HomePageActivity" />
+        <activity
+            android:name=".ProfileHelpActivity"
+            android:parentActivityName=".HelpActivity" />
+        <activity
+            android:name=".FriendsHelpActivity"
+            android:parentActivityName=".HelpActivity" />
+        <activity
+            android:name=".ContentHelpActivity"
+            android:parentActivityName=".HelpActivity" />
+        <activity
+            android:name=".MessageHelpActivity"
+            android:parentActivityName=".HelpActivity"></activity>
+        <activity android:name=".NewsHelpActivity"
+            android:parentActivityName=".HelpActivity">
+
+        </activity>
     </application>
 
 </manifest>

@@ -38,16 +38,40 @@ public class HelpActivity extends AppCompatActivity {
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent home = new Intent(HelpActivity.this, ProfileHelpActivity.class);
-                startActivity(home);
+                Intent profile = new Intent(HelpActivity.this, ProfileHelpActivity.class);
+                startActivity(profile);
             }
         });
 
         btnFriends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent home = new Intent(HelpActivity.this, FriendsHelpActivity.class);
-                startActivity(home);
+                Intent friend = new Intent(HelpActivity.this, FriendsHelpActivity.class);
+                startActivity(friend);
+            }
+        });
+
+        btnContent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent content = new Intent(HelpActivity.this, ContentHelpActivity.class);
+                startActivity(content);
+            }
+        });
+
+        btnMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent message = new Intent(HelpActivity.this, MessageHelpActivity.class);
+                startActivity(message);
+            }
+        });
+
+        btnNews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent news = new Intent(HelpActivity.this, NewsHelpActivity.class);
+                startActivity(news);
             }
         });
 

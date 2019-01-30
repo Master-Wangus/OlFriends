@@ -3,27 +3,27 @@
 
 
     <item
-        android:title="My Profile"
+        android:title="@string/my_profile"
         android:icon="@drawable/ic_myprofile"
         android:id="@+id/ic_myprofile"/>
 
     <item
-        android:title="Update Profile"
+        android:title="@string/update_profile"
         android:icon="@drawable/ic_updateprofile"
         android:id="@+id/ic_updateprofile"/>
 
     <item
-        android:title="Home"
+        android:title="@string/home"
         android:icon="@drawable/ic_home"
         android:id="@+id/ic_home"/>
 
     <item
-        android:title="Friend List"
+        android:title="@string/friend_list"
         android:icon="@drawable/ic_friendlist"
         android:id="@+id/ic_friendlist"/>
 
     <item
-        android:title="Log Out"
+        android:title="@string/log_out"
         android:icon="@drawable/ic_logout"
         android:id="@+id/ic_logout"/>
 
