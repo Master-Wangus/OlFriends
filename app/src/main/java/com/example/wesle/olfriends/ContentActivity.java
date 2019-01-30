@@ -31,17 +31,19 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class ContentActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private NavigationView navigationView;
-    private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle actionBarDrawerToggle;
+    //private NavigationView navigationView;
+    //private DrawerLayout drawerLayout;
+    //private ActionBarDrawerToggle actionBarDrawerToggle;
     private RecyclerView postList;
     private Toolbar mToolbar;
 
     //private CircleImageView NavProfileImage;
-    private TextView NavProfileUserName;
+    //private TextView NavProfileUserName;
     private ImageButton AddNewPostButton;
 
     private DatabaseReference UsersRef, PostsRef, LikesRef;
@@ -169,6 +171,7 @@ public class ContentActivity extends AppCompatActivity {
                         viewHolder.setDate(model.getDate());
                         viewHolder.setDescription(model.getDescription());
                         viewHolder.setPostimage(getApplicationContext(), model.getPostimage());
+                        viewHolder.setProfileimage(getApplicationContext(), model.getProfileimage());
                         viewHolder.setLikeButtonStatus(PostKey);
                         viewHolder.CommentPostButton.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -285,6 +288,11 @@ public class ContentActivity extends AppCompatActivity {
         {
             TextView PostDescription = (TextView) mView.findViewById(R.id.post_description);
             PostDescription.setText(description);
+        }
+        public void setProfileimage(Context ctx, String profileimage)
+        {
+            CircleImageView image = (CircleImageView) mView.findViewById(R.id.post_profile_image);
+            Picasso.with(ctx).load(profileimage).into(image);
         }
 
         public void setPostimage(Context ctx1, String postimage)

@@ -4,22 +4,20 @@ package com.example.wesle.olfriends;
  * Created by Coding Cafe on 3/4/2018.
  */
 
-public class Posts
-{
-    public String uid, time, date, postimage, description, fullname;
+public class Posts {
+    public String uid, time, date, postimage, description, profileimage, fullname;
 
-    public Posts()
-    {
+    public Posts() {
 
     }
 
-    public Posts(String uid, String time, String date, String postimage, String description, String fullname) {
+    public Posts(String uid, String time, String date, String postimage, String description, String profileimage, String fullname) {
         this.uid = uid;
         this.time = time;
         this.date = date;
         this.postimage = postimage;
         this.description = description;
-        //this.profileimage = profileimage;
+        this.profileimage = profileimage;
         this.fullname = fullname;
     }
 
@@ -63,13 +61,14 @@ public class Posts
         this.description = description;
     }
 
-    /*public String getProfileimage() {
+    public String getProfileimage() {
         return profileimage;
     }
 
     public void setProfileimage(String profileimage) {
         this.profileimage = profileimage;
-    }*/
+    }
+
     public String getFullname() {
         return fullname;
     }
@@ -78,4 +77,3 @@ public class Posts
         this.fullname = fullname;
     }
 }
-

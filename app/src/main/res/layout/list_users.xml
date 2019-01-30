@@ -14,6 +14,15 @@
         android:textAlignment="center"
         android:padding="10dp">
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/user_profile_image"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/profile" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

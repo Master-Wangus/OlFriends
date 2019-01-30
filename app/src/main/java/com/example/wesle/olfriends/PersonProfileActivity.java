@@ -18,14 +18,18 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PersonProfileActivity extends AppCompatActivity {
 
     private TextView personName, personAge, personInterest;
     private Button btnSend, btnDecline;
+    private CircleImageView profileImage;
 
     private FirebaseAuth mAuth;
     private DatabaseReference friendReqRef, userRef, friendRef;
@@ -41,6 +45,7 @@ public class PersonProfileActivity extends AppCompatActivity {
         personInterest = (TextView)findViewById(R.id.person_interest);
         btnSend = (Button)findViewById(R.id.btnSend);
         btnDecline = (Button)findViewById(R.id.btnDecline);
+        profileImage =(CircleImageView)findViewById(R.id.person_profile_image);
         current_state = "not_friends";
 
         mAuth = FirebaseAuth.getInstance();
@@ -93,6 +98,8 @@ public class PersonProfileActivity extends AppCompatActivity {
                     String myProfileName = dataSnapshot.child("Name").getValue().toString();
                     String myProfileAge = dataSnapshot.child("Age").getValue().toString();
                     String myProfileInterest = dataSnapshot.child("Interest").getValue().toString();
+                    String image = dataSnapshot.child("profileimage").getValue().toString();
+                    Picasso.with(getApplicationContext()).load(image).placeholder(R.drawable.profile).into(profileImage);
 
                     personName.setText("Name: " + myProfileName);
                     personAge.setText("Age: " + myProfileAge);

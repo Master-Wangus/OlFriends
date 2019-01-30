@@ -1,5 +1,6 @@
 package com.example.wesle.olfriends;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -20,12 +21,16 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class FriendsActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private EditText txtSearchInput;
     private ImageButton btnSearch, btnSearch2;
+    private CircleImageView profileImage;
 
     private RecyclerView userList;
 
@@ -118,6 +123,7 @@ public class FriendsActivity extends AppCompatActivity {
             protected void populateViewHolder(FindFriendsViewHolder viewHolder, FindFriends model, final int position) {
                 viewHolder.setName(model.getName());
                 viewHolder.setAge(model.getAge());
+                viewHolder.setImage(getApplicationContext(),model.getprofileimage());
 
                 viewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -149,6 +155,7 @@ public class FriendsActivity extends AppCompatActivity {
             protected void populateViewHolder(FindFriendsViewHolder viewHolder, FindFriends model, final int position) {
                 viewHolder.setName(model.getName());
                 viewHolder.setAge(model.getAge());
+                viewHolder.setImage(getApplicationContext(),model.getprofileimage());
 
                 viewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -182,6 +189,10 @@ public class FriendsActivity extends AppCompatActivity {
         public void setAge(String age){
             TextView myAge =  (TextView) mView.findViewById(R.id.txtAge);
             myAge.setText("Age: " + age);
+        }
+        public void setImage(Context ctx, String image){
+            CircleImageView profileImage =  (CircleImageView) mView.findViewById(R.id.user_profile_image);
+            Picasso.with(ctx).load(image).placeholder(R.drawable.profile).into(profileImage);
         }
     }
 

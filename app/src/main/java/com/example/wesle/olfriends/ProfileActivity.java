@@ -15,14 +15,19 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
     private TextView profileName, profileAge, profileInterest, profileTitle;
+
+    private CircleImageView profileImage;
 
     private DatabaseReference profileRef;
 
@@ -40,6 +45,7 @@ public class ProfileActivity extends AppCompatActivity {
         profileAge = (TextView)findViewById(R.id.profile_age);
         profileInterest = (TextView)findViewById(R.id.profile_interest);
         profileTitle = (TextView)findViewById(R.id.txtTitle);
+        profileImage = (CircleImageView)findViewById(R.id.profile_image);
         BottomNavigationView btmNavView = (BottomNavigationView)findViewById(R.id.bottomNavView);
         Menu menu = btmNavView.getMenu();
         MenuItem menuItem = menu.getItem(0);
@@ -82,11 +88,13 @@ public class ProfileActivity extends AppCompatActivity {
                     String profilename = dataSnapshot.child("Name").getValue().toString();
                     String profileage = dataSnapshot.child("Age").getValue().toString();
                     String profileinterest = dataSnapshot.child("Interest").getValue().toString();
+                    String image = dataSnapshot.child("profileimage").getValue().toString();
+                    Picasso.with(ProfileActivity.this).load(image).placeholder(R.drawable.profile).into(profileImage);
 
                     profileName.setText("Displayed Name:  " + profilename);
                     profileAge.setText("Displayed Age:  " + profileage);
                     profileInterest.setText("Displayed Interest:  " + profileinterest);
-                    profileTitle.setText("Welcome " + profilename);
+                    //profileTitle.setText("Welcome " + profilename);
                 }
             }
 

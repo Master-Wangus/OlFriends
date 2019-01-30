@@ -135,9 +135,9 @@ public class SetupActivity extends AppCompatActivity implements AdapterView.OnIt
     }
 
     private void NextPage(){
-        Intent home = new Intent(SetupActivity.this, SetupPic.class);
-        home.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(home);
+        Intent pic = new Intent(SetupActivity.this, SetupPic.class);
+        pic.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(pic);
         finish();
     }
 }
