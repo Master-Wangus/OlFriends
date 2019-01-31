@@ -25,7 +25,7 @@ public class NewsHelpActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         guideList.add(new Guide(1,
-                "Read News (Psrt 1)",
+                "Read News (Part 1)",
                 "To start reading worldwide news, click the News button depicted by the arrow in the picture."
                 ,
                 R.drawable.news1));
