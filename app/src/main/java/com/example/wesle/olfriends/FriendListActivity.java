@@ -1,5 +1,6 @@
 package com.example.wesle.olfriends;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -26,6 +27,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class FriendListActivity extends AppCompatActivity {
 
@@ -33,6 +37,7 @@ public class FriendListActivity extends AppCompatActivity {
     private DatabaseReference FriendsRef, UsersRef;
     private FirebaseAuth mAuth;
     private String online_user_id;
+    private CircleImageView profileImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +116,8 @@ public class FriendListActivity extends AppCompatActivity {
                         if (dataSnapshot.exists()) {
                             final String userName = dataSnapshot.child("Name").getValue().toString();
                             viewHolder.setName(userName);
+                            String image = dataSnapshot.child("profileimage").getValue().toString();
+                            viewHolder.setImage(getApplicationContext(),image);
 
                             viewHolder.mView.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -176,6 +183,10 @@ public class FriendListActivity extends AppCompatActivity {
         {
             TextView friendsDate = (TextView) mView.findViewById(R.id.txtAge);
             friendsDate.setText(date);
+        }
+        public void setImage(Context ctx, String image){
+            CircleImageView profileImage =  (CircleImageView) mView.findViewById(R.id.user_profile_image);
+            Picasso.with(ctx).load(image).placeholder(R.drawable.profile).into(profileImage);
         }
     }
 }

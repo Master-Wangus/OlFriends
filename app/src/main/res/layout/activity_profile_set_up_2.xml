@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login">
+
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@drawable/profile"/>
+        android:id="@+id/setup_profile_image"
+        android:layout_width="match_parent"
+        android:layout_height="352dp"
+        android:src="@drawable/profile" />
+
+    <Button
+        android:id="@+id/next_page_btn"
+        android:layout_width="334dp"
+        android:layout_height="69dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        android:background="@android:color/holo_green_light"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:text="Next"
+        android:textAlignment="center"
+        android:textColor="@color/cardview_light_background"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

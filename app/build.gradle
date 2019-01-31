@@ -39,4 +39,5 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:11.0.2'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     compile 'com.squareup.picasso:picasso:2.5.0'
+    api 'com.theartofdev.edmodo:android-image-cropper:2.6.+'
 }

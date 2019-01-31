@@ -39,6 +39,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="190dp"
+                android:layout_height="143dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/profile" />
+
             <TextView
                 android:id="@+id/txtTitle"
                 android:layout_width="match_parent"

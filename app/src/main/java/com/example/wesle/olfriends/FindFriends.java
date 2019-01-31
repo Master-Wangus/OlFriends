@@ -1,13 +1,15 @@
 package com.example.wesle.olfriends;
 
+
 public class FindFriends {
 
-    private String Name, Age;
+    private String Name, Age, profileimage;
 
 
-    public FindFriends(String name, String age) {
+    public FindFriends(String name, String age, String image) {
         Name = name;
         Age = age;
+        profileimage = image;
     }
 
     public FindFriends() {
@@ -28,4 +30,9 @@ public class FindFriends {
     public void setAge(String age) {
         Age = age;
     }
+
+    public String getprofileimage(){return profileimage;}
+
+    public void setprofileimage(String image){profileimage = image;}
+
 }

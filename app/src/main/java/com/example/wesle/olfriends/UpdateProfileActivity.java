@@ -24,8 +24,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UpdateProfileActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -35,6 +38,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements AdapterV
     private Button btnUpdate;
     private DatabaseReference updateUserRef;
     private String currentUserId;
+    private CircleImageView profileimage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements AdapterV
         myName = (EditText)findViewById(R.id.my_name);
         myAge = (EditText)findViewById(R.id.my_age);
         btnUpdate = (Button)findViewById(R.id.btnUpdate);
+        profileimage = (CircleImageView)findViewById(R.id.update_profile_image);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Interests, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -95,15 +100,24 @@ public class UpdateProfileActivity extends AppCompatActivity implements AdapterV
                 if (dataSnapshot.exists()){
                     String name = dataSnapshot.child("Name").getValue().toString();
                     String age = dataSnapshot.child("Age").getValue().toString();
+                    String image = dataSnapshot.child("profileimage").getValue().toString();
 
                     myName.setText(name);
                     myAge.setText(age);
+                    Picasso.with(UpdateProfileActivity.this).load(image).placeholder(R.drawable.profile).into(profileimage);
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
+            }
+        });
+        profileimage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                SendToSetupPic();
             }
         });
 
@@ -175,10 +189,17 @@ public class UpdateProfileActivity extends AppCompatActivity implements AdapterV
         });
     }
 
+
     private void SendToHome(){
         Intent home = new Intent(UpdateProfileActivity.this, HomePageActivity.class);
         home.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(home);
+        finish();
+    }
+    private void SendToSetupPic(){
+        Intent pic = new Intent(UpdateProfileActivity.this, SetupPic.class);
+        pic.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(pic);
         finish();
     }
 }
